@@ -14,34 +14,38 @@ namespace SoapStudentWCF
     {
 
         [OperationContract]
-        string GetData(int value);
+        Student AddStudent(string name, int id, int age);
 
         [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+        Student FindStudent(int id);
 
-        // TODO: Add your service operations here
+        [OperationContract]
+        int RemoveStudent(int id);
+
+        [OperationContract]
+        int EditStudent(string name, int id, int age);
+
+        [OperationContract]
+        List<Student> FindAllStudent();
     }
 
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
     [DataContract]
-    public class CompositeType
+    public class Student
     {
-        bool boolValue = true;
-        string stringValue = "Hello ";
+
 
         [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
+        public string Name { get; set; }
 
         [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
+        public int Age { get; set; }
+
+        [DataMember]
+        public int Id { get; set; }
     }
+
+
 }
+
