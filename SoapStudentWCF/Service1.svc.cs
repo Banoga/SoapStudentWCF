@@ -24,7 +24,8 @@ namespace SoapStudentWCF
 
         public Student FindStudent(int id)
         {
-            throw new NotImplementedException();
+            return students.Find(student => student.Id == id);
+
         }
 
         public int RemoveStudent(int id)
