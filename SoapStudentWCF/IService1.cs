@@ -20,10 +20,10 @@ namespace SoapStudentWCF
         Student FindStudent(int id);
 
         [OperationContract]
-        int RemoveStudent(int id);
+        bool RemoveStudent(int id);
 
         [OperationContract]
-        int EditStudent(string name, int id, int age);
+        bool EditStudent(string name, int id, int age);
 
         [OperationContract]
         List<Student> FindAllStudent();

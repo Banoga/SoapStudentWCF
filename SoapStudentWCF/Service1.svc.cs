@@ -28,19 +28,29 @@ namespace SoapStudentWCF
 
         }
 
-        public int RemoveStudent(int id)
+        public bool RemoveStudent(int id)
         {
-            throw new NotImplementedException();
+         Student st =  students.Find(student => student.Id == id);
+            bool st1 = students.Remove(st);
+            return st1;
         }
 
-        public int EditStudent(string name, int id, int age)
+        public bool EditStudent(string name, int id, int age)
         {
-            throw new NotImplementedException();
+            Student st = students.Find(student => student.Id == id);
+            if (st == null)
+            {
+                return false;
+            }
+            st.Name = name;
+            st.Age = age;
+            return true;
         }
 
         public List<Student> FindAllStudent()
         {
-            throw new NotImplementedException();
+            return students;
         }
+
     }
 }

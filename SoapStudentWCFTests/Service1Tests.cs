@@ -33,13 +33,26 @@ namespace SoapStudentWCF.Tests
         [TestMethod()]
         public void RemoveStudentTest()
         {
+
+           IService1 service2 = new Service1();
+            //Student st1 = service2.AddStudent("Jens", 2, 27);
+
+            bool b = service2.RemoveStudent(2);
+            
+            //Assert.IsNull(b);
+            Assert.IsFalse(b);
             
         }
 
         [TestMethod()]
         public void EditStudentTest()
         {
-           
+          IService1 service3 = new Service1();
+            Student st1 = service3.AddStudent("Jens", 1, 27);
+            bool b1 = service3.EditStudent("Jens", 1, 28);
+            Assert.IsTrue(b1);
+           Student st2 = service3.FindStudent(1);
+            Assert.AreEqual(28, st2.Age);
         }
 
         [TestMethod()]
