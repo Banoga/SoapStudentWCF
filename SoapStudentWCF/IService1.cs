@@ -12,7 +12,7 @@ namespace SoapStudentWCF
     [ServiceContract]
     public interface IService1
     {
-
+        
         [OperationContract]
         Student AddStudent(string name, int id, int age);
 
@@ -38,7 +38,10 @@ namespace SoapStudentWCF
     [DataContract]
     public class Student
     {
-
+        public override string ToString()
+        {
+            return Name + Id + Age;
+        }
 
         [DataMember]
         public string Name { get; set; }
