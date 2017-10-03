@@ -27,6 +27,10 @@ namespace SoapStudentWCF
 
         [OperationContract]
         List<Student> FindAllStudent();
+
+        [OperationContract]
+        void Clear();
+
     }
 
 

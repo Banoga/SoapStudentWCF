@@ -52,5 +52,9 @@ namespace SoapStudentWCF
             return students;
         }
 
+        public void Clear()
+        {
+            students.Clear();
+        }
     }
 }

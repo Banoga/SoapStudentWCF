@@ -15,6 +15,7 @@ namespace SoapStudentWCF.Tests
         public void AddStudentTest()
         {
             IService1 service = new Service1();
+            service.Clear();
             Student st = service.AddStudent("Jens", 1, 27);
             Assert.AreEqual("Jens", st.Name);
         }
@@ -23,6 +24,7 @@ namespace SoapStudentWCF.Tests
         public void FindStudentTest()
         {
             IService1 service1 = new Service1();
+            service1.Clear();
            Student st = service1.FindStudent(37);
             Assert.IsNull(st);
             Student st1 = service1.AddStudent("Jens", 1, 27);
@@ -35,6 +37,7 @@ namespace SoapStudentWCF.Tests
         {
 
            IService1 service2 = new Service1();
+            service2.Clear();
             //Student st1 = service2.AddStudent("Jens", 2, 27);
 
             bool b = service2.RemoveStudent(2);
@@ -48,6 +51,7 @@ namespace SoapStudentWCF.Tests
         public void EditStudentTest()
         {
           IService1 service3 = new Service1();
+            service3.Clear();
             Student st1 = service3.AddStudent("Jens", 1, 27);
             bool b1 = service3.EditStudent("Jens", 1, 28);
             Assert.IsTrue(b1);
@@ -58,7 +62,10 @@ namespace SoapStudentWCF.Tests
         [TestMethod()]
         public void FindAllStudentTest()
         {
-            
+            IService1 service1 = new Service1();
+            service1.Clear();
+            List<Student> students = service1.FindAllStudent();
+            Assert.AreEqual(0, students.Count);
         }
     }
 }
